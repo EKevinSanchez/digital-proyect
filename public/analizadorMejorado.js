@@ -1,25 +1,48 @@
 function analizador() {
     var expresion = document.getElementById("expresion").value;
-    var resultado = document.getElementById("resultado");
+    var resulLet = document.getElementById("restLet");
+    var resulDes = document.getElementById("restDes");
+
+
     limpiarResultado();
-    
-    var array = expresion.split(/\s+/);
+
+
+    var data = expresion.toLowerCase()
+    var array = data.split(/\s+/);
     /* var array = expresion.innerHTML.split(/\s+/); */
 
-    for (var i in array) {
-        for (let [key, value] of expresiones) {
-            if (value.test(array[i])) {
-                resultado.innerHTML =
-                resultado.innerHTML + array[i] + " es " + key + "\n";
-                //para que no siga buscando
-                break;
+    if (expresion == "") {
+        alert("Oye... si tu, no se si sepas, pero ... debes escribir una funcion :^)");
+    } else {
+        for (var i in array) {
+            for (let [key, value] of expresiones) {
+                if (value.test(array[i])) {
+                    resulLet.innerHTML = resulLet.innerHTML + array[i] + "<br>";
+                    resulDes.innerHTML = resulDes.innerHTML + " Es " + key + "<br>";
+
+                    //para que no siga buscando
+                    break;
+                }
             }
         }
     }
 }
 
-function limpiarResultado() { document.getElementById("resultado").innerHTML = "";  }
-function limpiarTodo(){document.getElementById("expresion").value = ""; document.getElementById("resultado").innerHTML = "";}
+function limpiarResultado() {
+    //document.getElementById("resultado").innerHTML = "";  
+    document.getElementById("restLet").innerHTML = "";
+    document.getElementById("restDes").innerHTML = "";
+}
+function limpiarTodo() {
+    var expresion = document.getElementById("expresion").value;
+    if (expresion == "") {
+        alert("Oye pero... si no hay nada que limpiar, que quieres que limpie!?");
+    } else {
+        document.getElementById("expresion").value = "";
+        document.getElementById("restLet").innerHTML = "...";
+        document.getElementById("restDes").innerHTML = "...";
+    }
+}
 
 let expresiones = new Map();
 expresiones.set("palabraReservada", /(for|while|if|true|false|else|case|break)/);
