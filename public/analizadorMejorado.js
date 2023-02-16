@@ -2,6 +2,7 @@ function analizador() {
     var expresion = document.getElementById("expresion").value;
     var resultado = document.getElementById("resultado");
     limpiarResultado();
+    
     var array = expresion.split(/\s+/);
     /* var array = expresion.innerHTML.split(/\s+/); */
 
@@ -17,7 +18,8 @@ function analizador() {
     }
 }
 
-function limpiarResultado() { document.getElementById("resultado").innerHTML = ""; }
+function limpiarResultado() { document.getElementById("resultado").innerHTML = "";  }
+function limpiarTodo(){document.getElementById("expresion").value = ""; document.getElementById("resultado").innerHTML = "";}
 
 let expresiones = new Map();
 expresiones.set("palabraReservada", /(for|while|if|true|false|else|case|break)/);

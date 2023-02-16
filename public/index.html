@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/256/8873/8873183.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -10,6 +10,7 @@
       content="Web site created using create-react-app"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -24,20 +25,49 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React Redux App</title>
+    <title>Compilador - Onfire</title>
+    <style>
+      .card {
+        margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+      }
+      .benito{
+        background-color: rgb(255, 255, 255);
+        width: 500px;
+        height: 10%;
+        margin-top: 1%;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      }
+    </style>
   </head>
-  <body style="background-color: black;">
-    <center> <h1 style="color: white;"> Compilador en JAVASCRIPT</h1> </center> <br>
-    <center> <h2 style="color: white;"> Analizador Lexico</h2> </center> <br>
+  <body style="background-color: rgb(251, 251, 251);">
+    <div class="card benito" >
+      <div class="card-body">
+        <center> <h1 style="color: rgb(0, 0, 0);"> Compilador e Interprete en JAVASCRIPT</h1> </center> <br>
+        <center> <h2 style="color: rgb(0, 0, 0);"> Analizador Lexico</h2> </center> <br>
 
-    <center><textarea id="expresion" class="form-control" style="height: 60px; width: 500px;"> </textarea> </center>
-    <button onclick="analizador()"> Analizar</button>
-    <center> <h2 style="color:rgb(29, 172, 29);"> analisis lexico</h2> </center>
-    <center><textarea id="resultado" class="form-control" style="height:210px; width: 200px;"></textarea></center>
+        <center>
+          <label for="exampleFormControlInput1">Funcion a Analizar</label>
+          <input type="text" class="form-control" id="expresion" placeholder="Ejemplo: if ( 3 + 2 )">
+        </center>
+      <div>
+        <button type="button" style="margin-top: 1.3%; margin-right: 51%;" onclick="analizador()" id="anal" class="btn btn-outline-success">Analizar</button>  
+        <button type="button" style="margin-top: 1.3%;" class="btn btn-outline-danger" onclick="limpiarTodo()">Limpiar sistema</button>
+      </div>
+        <center> <h2 style="color:rgb(29, 172, 29);"> analisis lexico</h2> </center>
+        <center><textarea id="resultado" class="form-control" style="height:210px; width: 200px;" placeholder="Resultado del analisis" disabled></textarea></center>
 
-    <br><br><br>
+        <br>
 
-    <h3 style="color: white;">Desarrollado en JAVASCRIPT</h3>
+        <h3 style="color: rgb(0, 0, 0); text-align: center;">Desarrollado en JAVASCRIPT & REDUX</h3>
+      </div>
+    </div>
     <script src="/analizadorMejorado.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
+
 </html>
