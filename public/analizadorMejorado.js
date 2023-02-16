@@ -11,16 +11,19 @@ function analizador() {
     var array = data.split(/\s+/);
     /* var array = expresion.innerHTML.split(/\s+/); */
 
-    if (expresion == "") {
-        alert("Oye... si tu, no se si sepas, pero ... debes escribir una funcion :^)");
+    if (expresion === "") {
+        swal.fire({
+            title: 'Alerta',
+            text: 'Oye... si tu, no se si sepas, pero ... debes escribir una funcion',
+            icon: 'warning',
+            confirmButtonText: 'Aceptar'
+        });
     } else {
         for (var i in array) {
             for (let [key, value] of expresiones) {
                 if (value.test(array[i])) {
                     resulLet.innerHTML = resulLet.innerHTML + array[i] + "<br>";
                     resulDes.innerHTML = resulDes.innerHTML + " Es " + key + "<br>";
-
-                    //para que no siga buscando
                     break;
                 }
             }
@@ -36,7 +39,12 @@ function limpiarResultado() {
 function limpiarTodo() {
     var expresion = document.getElementById("expresion").value;
     if (expresion == "") {
-        alert("Oye pero... si no hay nada que limpiar, que quieres que limpie!?");
+        swal.fire({
+            title: 'Alerta',
+            text: 'Oye pero... si no hay nada que limpiar, que quieres que limpie!?',
+            icon: 'warning',
+            confirmButtonText: 'Aceptar'
+        });
     } else {
         document.getElementById("expresion").value = "";
         document.getElementById("restLet").innerHTML = "...";
